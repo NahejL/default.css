@@ -6,7 +6,7 @@
 }
 /* Reset good crap */
 :where( head, script, style, template, slot ) {
-  all: initial
+  all: revert;
 }
 /* usually what I intent */
 :where( :not(:defined), :not(:empty), ::before:not(:empty), ::after:not(:empty) ) {
