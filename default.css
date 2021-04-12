@@ -1,12 +1,19 @@
 
-:where( ::before, ::after :not(script), :not(style), :not(template), :not(slot), ::part(default) * ) {
+/* Remove all crap */
+:where( :is( ::part(default), .default, ::part(default) *, .default * ):is( *, ::before, ::after ) ) {
   all: unset;
-  display: block;
   box-sizing: border-box;
 }
-:where( :not( :empty ), ::before:not( :empty ), ::after:not( :empty ) ) {
+/* Reset good crap */
+:where( head, script, style, template, slot ) {
+  all: initial
+}
+/* usually what I intent */
+:where( :not(:defined), :not(:empty), ::before:not(:empty), ::after:not(:empty) ) {
+  display: block;
   width: 100%; height: 100%;
 }
-:where( .box-debug, .box-debug *, .box-debug::before:not( :empty ), .box-debug::after:not( :empty ), .box-debug *::before:not( :empty ), .box-debug *::after:not( :empty )  ) {
+/* first thing to do when I get a headache */
+:where( :is( .box-debug, .box-debug * ):is( *, ::before:not(:empty), ::after:not(:empty) ) ) {
   border: 1px solid black;
 }
