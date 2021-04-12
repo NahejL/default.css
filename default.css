@@ -4,10 +4,6 @@
   all: unset;
   box-sizing: border-box;
 }
-/* Reset good crap */
-:where( head, script, style, template, slot ) {
-  all: revert;
-}
 /* usually what I intent */
 :where( :not(:defined), :not(:empty), ::before:not(:empty), ::after:not(:empty) ) {
   display: block;
@@ -16,4 +12,8 @@
 /* first thing to do when I get a headache */
 :where( :is( .box-debug, .box-debug * ):is( *, ::before:not(:empty), ::after:not(:empty) ) ) {
   border: 1px solid black;
+}
+/* Reset good crap */
+:where( head, script, style, template, slot ) {
+  all: revert;
 }
