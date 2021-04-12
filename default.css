@@ -1,0 +1,12 @@
+
+:where( ::before, ::after :not(script), :not(style), :not(template), :not(slot), ::part(default) * ) {
+  all: unset;
+  display: block;
+  box-sizing: border-box;
+}
+:where( :not( :empty ), ::before:not( :empty ), ::after:not( :empty ) ) {
+  width: 100%; height: 100%;
+}
+:where( .box-debug, .box-debug *, .box-debug::before:not( :empty ), .box-debug::after:not( :empty ), .box-debug *::before:not( :empty ), .box-debug *::after:not( :empty )  ) {
+  border: 1px solid black;
+}
